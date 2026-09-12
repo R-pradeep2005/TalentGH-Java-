@@ -28,3 +28,6 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/talentgh:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/talentgh:${{ github.sha }}
+
+      - name: Trigger Render deploy
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
